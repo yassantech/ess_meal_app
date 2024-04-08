@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://widget.northeurope.cloudapp.azure.com:9443/v0.1.0/mobile-money-widget-mtn.js"></script>
+    <script src="./scripts/htmx.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <section class="user" style="background: url('images/bg-hero3.jpg') no-repeat center;  background-size: cover;">
+   
+        <div class="user_options-container">
+          <div class="user_options-text">
+            <div class="user_options-unregistered">
+              <h2 class="user_unregistered-title">Check in</h2>
+              <p class="user_unregistered-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, aliquam..</p>
+              <button class="user_unregistered-signup" id="signup-button">Check in</button>
+            </div>
+      
+            <div class="user_options-registered">
+              <h2 class="user_registered-title">Meal Registration</h2>
+              <p class="user_registered-text">Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap.</p>
+              <button class="user_registered-login" id="login-button">Meal Registration</button>
+            </div>
+          </div>
+          
+          <div class="user_options-forms" id="user_options-forms">
+            <div class="user_forms-login">
+              <h2 class="forms_title">Meal Registraion</h2>
+
+              <form action="#" id="payment-form"  onsubmit="return validateForm(event)">
+                <div class="user_details">
+
+                    <div class="input_box">
+                        <label for="studentName">Student Name</label>
+                        <input type="text" id="studentName" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="input_box">
+                        <label for="studentID">Student ID</label>
+                        <input type="text" id="studentID" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="input_box">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input_box">
+                        <label for="phone">Class</label>
+                        <input type="number" id="phone" placeholder="Enter your number" required>
+                    </div>
+                    
+                    <div class="input_box">
+                        <label for="schoolName">School Name</label>
+                        <input type="text" id="schoolName" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="input_box">
+                        <label for="parmentName">Parent Name</label>
+                        <input type="text" id="parmentName" placeholder="Confirm your password" required>
+                    </div>
+
+
+                  <div class="input_box">
+                      <label for="pass">Meal Plan</label>
+                      <select name="mealPlan" id="mealPlan">
+                        <option value="one">Meal One</option>
+                        <option value="one">Meal two</option>
+                        <option value="one">Meal Three</option>
+                      </select>
+                  </div>
+                  
+                  <div class="input_box">
+                      <label for="numberOfMeals">Number of Meal</label>
+                      <input type="text" id="numberOfMeals" placeholder="Confirm your password" required>
+                  </div>
+
+
+                <div class="input_box">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="Enter your address" required>
+                </div>
+
+                <div class="input_box">
+                    <label for="contactNumber">Contact No.</label>
+                    <input type="text" id="contactNumber" placeholder="Enter mobile number" required>
+                </div>
+
+                <div class="input_box">
+                  <label for="totalAmount">Enter Amount</label>
+                  <input type="number" id="totalAmount" placeholder="Enter Amount" required>
+              </div>
+
+              <div class="input_box">
+                <label for="pass">Select Payment Type</label>
+                <select name="mealPlan" id="mealPlan">
+                  <option value="one">Momo</option>
+                  <option value="one">Visa</option>
+                  <option value="one">Master Card</option>
+                </select>
+            </div>
+                
+                </div>
+
+                <h3 style="
+                text-align: center;
+                margin-bottom: 10px;
+            ">Payment Details</h3>
+               <div class="payment__container">
+                <div class="mobile-money-qr-payment"
+                data-api-user-id="9b6cd260-cb71-4dd3-ac6e-5414d6321643"
+                data-amount="1000"
+                data-currency="EUR"
+                data-external-id="144-123-323"
+                ></div>
+               </div>
+
+                <div class="reg_btn">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+
+
+            </div>
+            <div class="user_forms-signup">
+              <h2 class="forms_title">Check In</h2>
+
+              <form action="#">
+                <div class="login__container">
+                  <div class="user_details">
+                      <div class="input_box">
+                          <label for="name">Student Name</label>
+                          <input type="text" id="name" placeholder="Enter your name" required>
+                      </div>
+                  </div>
+
+                  <div class="user_details">
+                    <div class="input_box">
+                        <label for="name">Student Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="reg_btn">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+
+
+            </div>
+          </div>
+        </div>
+  </section>
+</body>
+</html>
+
+
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal_header">
+        <img src="./images/momo.png" alt="momo image">
+        <h2 style="text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">Proceed With Payment</h2>
+      </div>
+      <p style=" text-align: center; font-size: medium; margin-bottom: 10px;">
+        Hello 
+        <span id="modalUsername"></span>, 
+        please enter mobile number to make payment:
+      </p>
+
+      <div class="total__amount">
+        <h4>Total amount: <span id="totalAmountToBePaid">gh30000.00</span></h4>
+        <h4>Student name: <span id="studentname">Student name</span></h4>
+      </div>
+
+      <div class="input_box">
+        <input type="number" id="momoNumber" name="momoNumber" placeholder="Enter mobile number">
+      </div>
+
+     
+      <button onclick="submitPayment()">Make Payment</button>
+  </div>
+</div>
+
+<script src="./scripts/script.js"></script>
