@@ -99,6 +99,28 @@
   justify-content: center;
   gap: 17px;
 }
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45%;
+  height: 400px;
+}
+
+
+.total_amount,h4{
+text-align: center;
+margin-bottom: 10px;
+font-style: oblique;
+
+}
+.input_box{
+  width: auto;
+  margin-bottom: 10px;
+  font-weight: 800;
+  
+}
 
 
 .modal_header img{
